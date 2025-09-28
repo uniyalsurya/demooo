@@ -1,9 +1,19 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage('checkout'){
-            steps{
+
+    stages {
+        stage('Checkout') {
+            steps {
                 checkout scm
+            }
+        }
+
+        stage('Client Tests') {
+            steps {
+                dir('client') {
+                    sh 'npm install'
+                    sh 'npm test'
+                }
             }
         }
     }
