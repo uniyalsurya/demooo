@@ -1,14 +1,13 @@
-version: '3.8'
 services:
   backend:
-    build: ./backend
+    build: ./server
     ports:
       - "3000:3000"
     env_file:
       - ./backend/.env
 
   frontend:
-    build: ./frontend
+    build: ./client
     ports:
       - "5173:5173"
     depends_on:
